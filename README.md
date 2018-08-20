@@ -65,6 +65,8 @@ Make sure that the keys and secrets are between `"`.
 
 On Linux, that does not matter, however, on Powershell it matters.
 
+Also, put `$` before variable name if you use windows.
+
 You are ready to use Twitter API.
 
 ### Set FLASK_APP
