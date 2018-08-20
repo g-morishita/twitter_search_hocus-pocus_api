@@ -36,6 +36,8 @@ curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
 
 ## Set up
 
+for windows users, you must use `set` instead of `export`.
+
 ### install the required packages
 
 Make sure you have installed python>=3.0.
@@ -43,9 +45,51 @@ Make sure you have installed python>=3.0.
 run the following command.
 
 ```
-pip install flask TwitterAPI
+$ pip install flask TwitterAPI
 ```
 
 ### Set Twitter Token to the environment variables
 
+If you do not have Twitter access token and secret, you have to get them [here](https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html).
 
+After that, run on a bash
+
+```
+$ export CONSUMER_KEY=<your consumer key>
+$ export CONSUMER_SECRET=<your consumre secret>
+$ export ACCESS_TOKEN_KEY=<your access token key>
+$ export ACCESS_TOKEN_SECRET=<your access token secret>
+```
+
+You are ready to use Twitter API.
+
+### Set FLASK_APP
+
+run on a bash
+
+```
+$ export FLASK_APP=search_api.py
+```
+
+The setting is over now.
+
+## Run the API endpoints
+
+run this in a project root directory where README.md is located.
+
+```
+$ flask run
+```
+
+You can access to `http://localhost:5000`.
+
+## Check if the API works
+
+In the browser, type `http://localhost:5000/hashtags/Avengers` let's say.
+
+If you see long text which is in JSON format, it works out perfectly.
+
+Of course, you can check it using `curl` or `wget`.
+
+## Documentation
+read `document.html`, which is included in a repository.
