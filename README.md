@@ -36,7 +36,11 @@ curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
 
 ## Set up
 
-for windows users, you must use `set` instead of `export`.
+for windows users, you must use `$env:` instead of `export`.
+ 
+For example,
+
+On Linux `export CONSUMER_KEY='hogehoge'`, while on Powershell `$env:CONSUMER_KEY='hogehoge'`.
 
 ### install the required packages
 
