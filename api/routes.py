@@ -9,6 +9,8 @@ def getByHashtags(hashtag):
     Returns the list of tweets with a given hashtag in JSON format
     pages_limit: One page has 100 tweets. You can set the limit of the number of pages.
         Usage: hashtags/<hashtag>?pages_limit=3
+
+    Note that if you search by a hashtag no one uses, return a empty list alike the users endpoint.
     """
 
     # set page_limits. The default is 1 
@@ -16,7 +18,6 @@ def getByHashtags(hashtag):
     pages_limit = int(pages_limit)
 
     raw_response = get_response(tw_api, 'search/tweets', { 'q': '#' + hashtag, 'count': 100 }, pages_limit)
-
     list_response = convert_resp2list(raw_response)
     return jsonify(list_response)
 
@@ -26,6 +27,8 @@ def getByUser(user):
     Returns the list of tweets that certain user has on his/her own feed in JSON format
     pages_limit: One page has 100 tweets. You can set the limit of the number of pages.
         Usage: hashtags/<hashtag>?pages_limit=3
+
+    Note that if you search by a user that does not exist, return a JSON which includes an error message
     """
 
     # set page_limits. The default is 1 

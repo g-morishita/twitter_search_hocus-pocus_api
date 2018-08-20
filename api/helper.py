@@ -30,7 +30,7 @@ def convert_resp2list(response, pages_limit = 1):
             if ( limit_tweets > pages_limit * 100):
                 break
     except TwitterRequestError as tw_e:
-        return [{'error' : 'No tweets or users found'}]
+        return [{'error' : 'No Users found'}]
 
     return response_list
 
