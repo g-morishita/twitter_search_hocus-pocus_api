@@ -1,19 +1,26 @@
 from api import api, tw_api
 from flask import jsonify
 
+def convert_resp2list(response):
+    """ 
+    convert TwitterResponse object to list of dict
+    """
+    response_list = []
+    for tweet in response:
+        response_list.append(tweet)
+
+    return response_list
+
 @api.route('/hashtags/<string:hashtag>', methods=['GET'])
 def getByHashtags(hashtag):
     """
     Returns the list of tweets with a given hashtag in JSON format
     """
-    
-    # get a response by a hashtag
-    hs_response = tw_api.request('search/tweets', { 'q': hashtag })
 
-    # convert TwitterResponse object to list of dict
-    hs_result = []
-    for tweet in hs_response:
-        hs_result.append(tweet)
+    # get a response by a hashtag
+    hs_response = tw_api.request('search/tweets', { 'q': '#' + hashtag })
+    
+    hs_result = convert_resp2list(hs_response)
 
     return jsonify(hs_result)
 
@@ -22,4 +29,9 @@ def getByUser(user):
     """
     Returns the list of tweets that certain user has on his/her own feed in JSON format
     """
-    pass
+    # get a response by a username
+    usr_response = tw_api.request('statuses/user_timeline', { 'screen_name': user })
+
+    usr_result = convert_resp2list(usr_response)
+
+    return jsonify(usr_result)
