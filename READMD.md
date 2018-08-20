@@ -16,7 +16,7 @@ If you want to get tweets with a hashtag #Avengers,
 curl -X GET "http://localhost:5000/hashtags/Avengers" -H "accept: application/json"
 ```
 
-Likewise, if you want to get tweets someone specific has on his/her feed,
+Likewise, if you want to get tweets someone specific(let's say Kyary Pamyu Pamyu) has on his/her feed,
 
 ```
 curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
