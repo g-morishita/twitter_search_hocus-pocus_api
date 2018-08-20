@@ -36,7 +36,7 @@ curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
 
 ## Set up
 
-for windows users, you must use `set` instead of `export`.
+for windows users(Power shell), you must use `set` instead of `export`.
 
 ### install the required packages
 
@@ -55,11 +55,15 @@ If you do not have Twitter access token and secret, you have to get them [here](
 After that, run on a bash
 
 ```
-$ export CONSUMER_KEY=<your consumer key>
-$ export CONSUMER_SECRET=<your consumre secret>
-$ export ACCESS_TOKEN_KEY=<your access token key>
-$ export ACCESS_TOKEN_SECRET=<your access token secret>
+$ export CONSUMER_KEY="<your consumer key>"
+$ export CONSUMER_SECRET="<your consumre secret>"
+$ export ACCESS_TOKEN_KEY="<your access token key>"
+$ export ACCESS_TOKEN_SECRET="<your access token secret>"
 ```
+
+Make sure that the keys and secrets are between `"`. 
+
+On Linux, that does not matter, however, on Powershell it matters.
 
 You are ready to use Twitter API.
 
