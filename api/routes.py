@@ -1,41 +1,37 @@
 from api import api, tw_api
 from flask import jsonify, request
-from api.helper import convert_resp2list
-
-def convert_resp2list(response):
-    """ 
-    convert TwitterResponse object to list of dict
-    """
-    response_list = []
-    for tweet in response:
-        response_list.append(tweet)
-
-    return response_list
+from api.helper import convert_resp2list, get_response
+from TwitterAPI import TwitterPager
 
 @api.route('/hashtags/<string:hashtag>', methods=['GET'])
 def getByHashtags(hashtag):
     """
     Returns the list of tweets with a given hashtag in JSON format
+    pages_limit: One page has 100 tweets. You can set the limit of the number of pages.
+        Usage: hashtags/<hashtag>?pages_limit=3
     """
 
-    # page_limits 
-    DEFAULT_PAGES = 1
-    pages_limit = request.args.get('pages_limit') or DEFAULT_PAGES 
+    # set page_limits. The default is 1 
+    pages_limit = request.args.get('pages_limit') or 1
+    pages_limit = int(pages_limit)
 
-    # get a response by a hashtag
-    hs_response = tw_api.request('search/tweets', { 'q': '#' + hashtag, 'count': 100 })
-    hs_result = convert_resp2list(hs_response)
+    raw_response = get_response(tw_api, 'search/tweets', { 'q': '#' + hashtag, 'count': 100 }, pages_limit)
 
-    return jsonify(hs_result)
+    list_response = convert_resp2list(raw_response)
+    return jsonify(list_response)
 
 @api.route('/users/<string:user>', methods=['GET'])
 def getByUser(user):
     """
     Returns the list of tweets that certain user has on his/her own feed in JSON format
+    pages_limit: One page has 100 tweets. You can set the limit of the number of pages.
+        Usage: hashtags/<hashtag>?pages_limit=3
     """
 
-    # get a response by a username
-    usr_response = tw_api.request('statuses/user_timeline', { 'screen_name': user })
-    usr_result = convert_resp2list(usr_response)
+    # set page_limits. The default is 1 
+    pages_limit = request.args.get('pages_limit') or 1
+    pages_limit = int(pages_limit)
 
-    return jsonify(usr_result)
+    raw_response = get_response(tw_api, 'statuses/user_timeline', {'screen_name' : user, 'count': 100 }, pages_limit)
+    list_response = convert_resp2list(raw_response)
+    return jsonify(list_response)
