@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>twitter Search Hocus-Pocus API</title>
+</head>
+<body>
+    <h1>Twitter Search Hocus-Pocus API</h1>
+    <p class=>This is an implementation of two API endpoints that connects through the twitter API. The one of them is to get the list of tweets with the given hashtag. The other is to get the list of tweets that user has on his feed in json format.</p>
+    <p><a href="gota.morishita@gmail.com">Contact the developer</a></p>
+    <p><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache2.0</a></p>
+
+    <div>Schemes</div>
+    <div>HTTP</div>
+    <hr>
+
+    <h2>hashtags</h2>
+    <p>operations with hashtags</p>
+    <div>
+    <p>GET</p>
+    /hashtags/{hashtag}
+    <p>Find tweets by a hashtag</p>
+    <p>Returns the list of tweets with a given hashtag in a JSON format, which is the same format as what you get using a Twitter Search API. The details is <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html">here</a></p>
+
+    <h3>Parameters</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>hashtag <span>required</span></td>
+            <td>hashtag by which you find tweets</td>
+        </tr>
+        <tr>
+            <td>pages_limit</td>
+            <td>the number of pages to retrieve. One page has 100 tweets</td>
+        </tr>
+    </table>
+
+    <h2>users</h2>
+    <p>operations with users</p>
+    <div>
+    <p>GET</p>
+    /users/{user}
+    <p>Find tweets by a user</p>
+    <p>Returns the list of tweets that certain user has on his/her own feed in a JSON format, which is the same format as what you get using Twitter Search API. The details is <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html">here</a></p>
+
+    <h3>Parameters</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>user<span>required</span></td>
+            <td>User on whose feed you find tweets</td>
+        </tr>
+        <tr>
+            <td>pages_limit</td>
+            <td>the number of pages to retrieve. One page has 100 tweets</td>
+        </tr>
+    </table>
+</body>
+</html>
