@@ -21,3 +21,31 @@ Likewise, if you want to get tweets someone specific(let's say Kyary Pamyu Pamyu
 ```
 curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
 ```
+
+## Requirements
+
+### python version
+- python>=3.0
+
+### pip 
+- flask>=1.0
+- TwitterAPI
+- (requests)
+
+`requests` package is required only if you run tests.
+
+## Set up
+
+### install the required packages
+
+Make sure you have installed python>=3.0.
+
+run the following command.
+
+```
+pip install flask TwitterAPI
+```
+
+### Set Twitter Token to the environment variables
+
+
