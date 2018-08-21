@@ -36,7 +36,7 @@ curl -X GET "http://localhost:5000/users/pamyurin" -H "accept: application/json"
 
 ## Set up
 
-for windows users(Power shell), you must use `$env:` instead of `export`.
+for windows users(Power shell), you must prefix `$env:` instead of `export`.
  
 For example,
 
@@ -78,7 +78,7 @@ You are ready to use Twitter API.
 run on a bash
 
 ```
-$ export FLASK_APP=search_api.py
+$ export FLASK_APP="search_api.py"
 ```
 
 The setting is over now.
@@ -100,6 +100,3 @@ In the browser, type `http://localhost:5000/hashtags/Avengers` let's say.
 If you see long text which is in JSON format, it works out perfectly.
 
 Of course, you can check it using `curl` or `wget`.
-
-## Documentation
-read `document.html`, which is included in a repository.
