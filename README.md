@@ -100,3 +100,7 @@ In the browser, type `http://localhost:5000/hashtags/Avengers` let's say.
 If you see long text which is in JSON format, it works out perfectly.
 
 Of course, you can check it using `curl` or `wget`.
+
+# Document
+
+See the [wiki](https://github.com/kona-nkuN/twitter_search_hocus-pocus_api/wiki/Documentation:-Twitter-Search-Hocus-Pocus-API)
